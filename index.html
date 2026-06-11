@@ -43,13 +43,13 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--navy);
+      background: linear-gradient(135deg, #1a5fb4 0%, #2e7dd1 60%, #5aabf0 100%);
       padding: 0 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       height: 72px;
-      box-shadow: 0 2px 16px rgba(10,44,94,0.3);
+      box-shadow: 0 2px 16px rgba(10,44,94,0.2);
     }
 
     .logo {
@@ -62,12 +62,13 @@
     .logo-mark {
       width: 42px;
       height: 42px;
-      background: linear-gradient(135deg, var(--sky), var(--mid-blue));
-      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
       color: white;
     }
 
@@ -112,7 +113,7 @@
 
     .header-tel-label {
       font-size: 0.6rem;
-      color: var(--sky);
+      color: white;
       letter-spacing: 0.1em;
     }
 
@@ -121,13 +122,16 @@
       font-weight: 700;
       color: white;
       letter-spacing: 0.05em;
+      text-decoration: none;
     }
 
     /* ===== HERO ===== */
     .hero {
       position: relative;
       min-height: 100vh;
-      background: linear-gradient(160deg, var(--navy) 0%, #0d3d82 50%, #1155a8 100%);
+      background-image: url('img/hero.avif');
+      background-size: cover;
+      background-position: center;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -137,9 +141,12 @@
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 60% 80% at 70% 40%, rgba(90,171,240,0.15) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 50% at 90% 80%, rgba(30,100,200,0.2) 0%, transparent 60%);
+      background: linear-gradient(
+        135deg,
+        rgba(5, 25, 60, 0.55) 0%,
+        rgba(10, 44, 94, 0.40) 50%,
+        rgba(10, 44, 94, 0.28) 100%
+      );
     }
 
     .hero-waves {
@@ -192,12 +199,13 @@
 
     .hero-badge {
       display: inline-block;
-      background: rgba(90,171,240,0.2);
-      border: 1px solid rgba(90,171,240,0.4);
-      color: var(--sky);
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      padding: 6px 18px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: rgba(255,255,255,0.95);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      padding: 8px 20px;
       border-radius: 100px;
       margin-bottom: 24px;
     }
@@ -290,12 +298,13 @@
     .hero-card-icon {
       width: 48px;
       height: 48px;
-      background: linear-gradient(135deg, var(--sky), var(--mid-blue));
-      border-radius: 12px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
       flex-shrink: 0;
     }
 
@@ -513,7 +522,25 @@
     }
 
     /* ===== FLOW ===== */
-    .flow { background: var(--navy); }
+    .flow {
+      position: relative;
+      background-image: url('img/flow_bg.avif');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .flow::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 30, 70, 0.62);
+    }
+
+    .flow .section-inner {
+      position: relative;
+      z-index: 1;
+    }
 
     .flow .section-title { color: white; }
     .flow .section-label { color: var(--sky); }
@@ -545,19 +572,23 @@
     .flow-step-num {
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, var(--sky), var(--mid-blue));
+      background: linear-gradient(145deg, #ffffff 0%, #e8f0fa 50%, #d0e0f5 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.6rem;
       font-weight: 700;
-      color: white;
+      color: var(--navy);
       margin: 0 auto 20px;
       position: relative;
       z-index: 1;
-      box-shadow: 0 4px 20px rgba(46,125,209,0.4);
+      box-shadow:
+        0 6px 24px rgba(255,255,255,0.3),
+        inset 0 2px 4px rgba(255,255,255,0.9),
+        inset 0 -2px 4px rgba(0,0,0,0.1);
       font-family: 'Noto Serif JP', serif;
+      text-shadow: none;
     }
 
     .flow-step-title {
@@ -575,7 +606,25 @@
     }
 
     /* ===== VOICE / TESTIMONIALS ===== */
-    .voice { background: var(--gray); }
+    .voice {
+      position: relative;
+      background-image: url('img/voice_bg.avif');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .voice::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(240, 246, 255, 0.65);
+    }
+
+    .voice .section-inner {
+      position: relative;
+      z-index: 1;
+    }
 
     .voice-grid {
       display: grid;
@@ -648,7 +697,10 @@
 
     /* ===== CTA BANNER ===== */
     .cta-banner {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      background-image: url('img/estimate.avif');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       padding: 80px 40px;
       text-align: center;
       position: relative;
@@ -659,7 +711,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(90,171,240,0.15) 0%, transparent 70%);
+      background: rgba(8, 30, 70, 0.75);
     }
 
     .cta-banner-inner {
@@ -876,7 +928,7 @@
 
     /* ===== FOOTER ===== */
     footer {
-      background: var(--navy);
+      background: linear-gradient(135deg, #1a5fb4 0%, #2e7dd1 60%, #5aabf0 100%);
       padding: 60px 40px 30px;
     }
 
@@ -1019,11 +1071,38 @@
     }
 
     .price-card {
-      background: white;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      min-height: 320px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .price-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 25, 60, 0.15) 0%,
+        rgba(5, 25, 60, 0.80) 100%
+      );
+      transition: background 0.3s;
+      z-index: 1;
+    }
+
+    .price-card:hover::before {
+      background: linear-gradient(
+        to bottom,
+        rgba(26, 95, 180, 0.25) 0%,
+        rgba(5, 25, 60, 0.90) 100%
+      );
     }
 
     .price-card:hover {
@@ -1032,59 +1111,65 @@
     }
 
     .price-card.featured {
-      border: 3px solid var(--mid-blue);
-      position: relative;
+      border: 3px solid var(--sky);
     }
 
-    .price-card.featured::before {
+    .price-card.featured::after {
       content: '人気No.1';
       position: absolute;
-      top: -1px;
-      right: 24px;
+      top: 12px;
+      right: 16px;
       background: var(--mid-blue);
       color: white;
       font-size: 0.72rem;
       font-weight: 700;
       padding: 4px 16px;
-      border-radius: 0 0 10px 10px;
+      border-radius: 100px;
       letter-spacing: 0.05em;
+      z-index: 2;
     }
 
     .price-head {
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      padding: 28px 28px 24px;
-      text-align: center;
+      position: relative;
+      z-index: 2;
+      padding: 20px 24px 8px;
+      text-align: left;
     }
 
     .price-category {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--sky);
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      font-weight: 700;
     }
 
     .price-name {
       font-family: 'Noto Serif JP', serif;
-      font-size: 1.3rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: white;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
     }
 
     .price-amount {
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: var(--gold-light);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
     }
 
     .price-amount small {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 400;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.8);
     }
 
     .price-body {
-      padding: 28px;
+      position: relative;
+      z-index: 2;
+      padding: 8px 24px 24px;
     }
 
     .price-includes {
@@ -1092,26 +1177,27 @@
     }
 
     .price-includes li {
-      font-size: 0.88rem;
-      color: var(--text-mid);
-      padding: 8px 0;
-      border-bottom: 1px solid #eef2f8;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.88);
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
     }
 
     .price-includes li::before {
       content: '✓';
-      color: var(--mid-blue);
+      color: var(--sky);
       font-weight: 700;
       flex-shrink: 0;
     }
 
     .price-note {
       font-size: 0.75rem;
-      color: var(--text-light);
-      margin-top: 16px;
+      color: rgba(255,255,255,0.65);
+      margin-top: 10px;
       line-height: 1.8;
     }
 
@@ -1151,7 +1237,9 @@
 <!-- ===== HEADER ===== -->
 <header>
   <a href="#" class="logo">
-    <div class="logo-mark">🏠</div>
+    <div class="logo-mark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
     <div>
       <span class="logo-text">あんしんリフォーム</span>
       <span class="logo-sub">ANSHIN REFORM</span>
@@ -1166,8 +1254,8 @@
     <a href="#contact">お問い合わせ</a>
   </nav>
   <div class="header-tel">
-    <span class="header-tel-label">📞 無料相談・お見積り</span>
-    <span class="header-tel-number">03-6821-3857</span>
+    <span class="header-tel-label"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 無料相談・お見積り</span>
+    <a href="tel:03-6821-3857" class="header-tel-number">03-6821-3857</a>
   </div>
 </header>
 
@@ -1178,7 +1266,7 @@
   <div class="hero-deco hero-deco-3"></div>
   <div class="hero-content">
     <div class="hero-text">
-      <div class="hero-badge">✦ 職人の施工実績 1,000件以上</div>
+      <div class="hero-badge">職人の施工実績 1,000件以上</div>
       <h1 class="hero-title">
         住まいの不安を、<br>
         <span>安心と快適</span>に。
@@ -1189,27 +1277,33 @@
         丁寧なご説明と明朗な料金で、<br>安心してお任せいただけます。
       </p>
       <div class="hero-cta">
-        <a href="#form" class="btn-primary">📋 無料お見積り依頼</a>
-        <a href="tel:03-6821-3857" class="btn-secondary">📞 今すぐ電話する</a>
+        <a href="#form" class="btn-primary">無料お見積り依頼</a>
+        <a href="tel:03-6821-3857" class="btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 今すぐ電話する</a>
       </div>
     </div>
     <div class="hero-cards">
       <div class="hero-card">
-        <div class="hero-card-icon">🔧</div>
+        <div class="hero-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
         <div class="hero-card-text">
           <strong>当日・翌日対応可能</strong>
           <span>急な水まわりのトラブルにも迅速対応</span>
         </div>
       </div>
       <div class="hero-card">
-        <div class="hero-card-icon">💰</div>
+        <div class="hero-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
         <div class="hero-card-text">
           <strong>お見積り・ご相談 完全無料</strong>
           <span>追加費用一切なし・明朗会計</span>
         </div>
       </div>
       <div class="hero-card">
-        <div class="hero-card-icon">🏅</div>
+        <div class="hero-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
         <div class="hero-card-text">
           <strong>施工後も安心の保証付き</strong>
           <span>アフターサービスも丁寧にご対応</span>
@@ -1339,11 +1433,11 @@
       <p class="section-desc">よくご依頼いただく工事の参考価格です。現地確認の上、正式なお見積りをご提示します。</p>
     </div>
     <div class="price-grid">
-      <div class="price-card reveal">
+      <div class="price-card reveal" style="background-image: url('img/price_toilet.avif');">
         <div class="price-head">
           <div class="price-category">TOILET</div>
           <div class="price-name">トイレリフォーム</div>
-          <div class="price-amount">¥50,000<small> 〜</small></div>
+          <div class="price-amount">98,000円<small> 〜</small></div>
         </div>
         <div class="price-body">
           <ul class="price-includes">
@@ -1352,14 +1446,14 @@
             <li>既存設備撤去・処分</li>
             <li>施工後クリーニング</li>
           </ul>
-          <p class="price-note">※設備グレードにより変動します</p>
+          <p class="price-note">※トイレ一室まるごとリフォームは15万円〜</p>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card reveal" style="background-image: url('img/price_washroom.avif');">
         <div class="price-head">
           <div class="price-category">WASHROOM</div>
           <div class="price-name">洗面台リフォーム</div>
-          <div class="price-amount">¥50,000<small> 〜</small></div>
+          <div class="price-amount">98,000円<small> 〜</small></div>
         </div>
         <div class="price-body">
           <ul class="price-includes">
@@ -1368,14 +1462,14 @@
             <li>既存設備撤去・処分</li>
             <li>施工後クリーニング</li>
           </ul>
-          <p class="price-note">※設備グレードにより変動します</p>
+          <p class="price-note">※洗面所一室まるごとリフォームは15万円〜</p>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card reveal" style="background-image: url('img/price_boiler.avif');">
         <div class="price-head">
           <div class="price-category">WATER HEATER</div>
           <div class="price-name">給湯器交換</div>
-          <div class="price-amount">¥50,000<small> 〜</small></div>
+          <div class="price-amount">98,000円<small> 〜</small></div>
         </div>
         <div class="price-body">
           <ul class="price-includes">
@@ -1387,11 +1481,11 @@
           <p class="price-note">※機種・仕様により変動します</p>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card reveal" style="background-image: url('img/price_pipe.avif');">
         <div class="price-head">
           <div class="price-category">PIPE WORK</div>
           <div class="price-name">給水・給湯管工事</div>
-          <div class="price-amount">¥50,000<small> 〜</small></div>
+          <div class="price-amount">198,000円<small> 〜／1本</small></div>
         </div>
         <div class="price-body">
           <ul class="price-includes">
@@ -1400,14 +1494,14 @@
             <li>水漏れ確認・試運転</li>
             <li>廃材処分・現場清掃</li>
           </ul>
-          <p class="price-note">※配管の状態・範囲により変動します</p>
+          <p class="price-note">※メーター数により変動します</p>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card reveal" style="background-image: url('img/price_faucet.avif');">
         <div class="price-head">
           <div class="price-category">FAUCET</div>
           <div class="price-name">蛇口・水栓交換</div>
-          <div class="price-amount">¥50,000<small> 〜</small></div>
+          <div class="price-amount">30,000円<small> 〜</small></div>
         </div>
         <div class="price-body">
           <ul class="price-includes">
@@ -1419,27 +1513,42 @@
           <p class="price-note">※水栓の種類により変動します</p>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card reveal" style="background-image: url('img/price_closs.avif');">
         <div class="price-head">
           <div class="price-category">INTERIOR</div>
-          <div class="price-name">天井・クロス・床張り替え</div>
-          <div class="price-amount">¥50,000<small> 〜</small></div>
+          <div class="price-name">壁・天井クロス張り替え</div>
+          <div class="price-amount">1,000円<small> 〜／㎡</small></div>
         </div>
         <div class="price-body">
           <ul class="price-includes">
             <li>クロス（壁紙）貼り替え</li>
-            <li>クッションフロア張替え</li>
             <li>天井クロス貼り替え</li>
+            <li>下地処理・補修</li>
             <li>廃材処分・現場清掃</li>
           </ul>
           <p class="price-note">※面積・仕様により変動します</p>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card reveal" style="background-image: url('img/price_floor.avif');">
+        <div class="price-head">
+          <div class="price-category">FLOORING</div>
+          <div class="price-name">床フローリング張り替え</div>
+          <div class="price-amount">10,000円<small> 〜／㎡</small></div>
+        </div>
+        <div class="price-body">
+          <ul class="price-includes">
+            <li>フローリング張り替え</li>
+            <li>下地処理・補修</li>
+            <li>廃材処分・現場清掃</li>
+          </ul>
+          <p class="price-note">※施工方法により単価変動あり</p>
+        </div>
+      </div>
+      <div class="price-card reveal" style="background-image: url('img/price_breaker.avif');">
         <div class="price-head">
           <div class="price-category">ELECTRICAL</div>
           <div class="price-name">ブレーカー交換</div>
-          <div class="price-amount">¥50,000<small> 〜</small></div>
+          <div class="price-amount">50,000円<small> 〜</small></div>
         </div>
         <div class="price-body">
           <ul class="price-includes">
@@ -1451,11 +1560,11 @@
           <p class="price-note">※仕様・容量により変動します</p>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card reveal" style="background-image: url('img/price_bath.avif');">
         <div class="price-head">
           <div class="price-category">UNIT BATH</div>
           <div class="price-name">ユニットバスリフォーム</div>
-          <div class="price-amount">¥50,000<small> 〜</small></div>
+          <div class="price-amount">500,000円<small> 〜</small></div>
         </div>
         <div class="price-body">
           <ul class="price-includes">
@@ -1467,11 +1576,11 @@
           <p class="price-note">※サイズ・グレードにより変動します</p>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card reveal" style="background-image: url('img/price_kitchen.avif');">
         <div class="price-head">
           <div class="price-category">KITCHEN</div>
           <div class="price-name">キッチンリフォーム</div>
-          <div class="price-amount">¥50,000<small> 〜</small></div>
+          <div class="price-amount">198,000円<small> 〜</small></div>
         </div>
         <div class="price-body">
           <ul class="price-includes">
@@ -1540,7 +1649,9 @@
         <div class="voice-stars">★★★★★</div>
         <p class="voice-text">トイレの交換をお願いしました。説明がとても丁寧で、費用も事前の見積もり通りで安心できました。施工も半日で終わり、使い方まで教えていただきました。</p>
         <div class="voice-person">
-          <div class="voice-avatar">👴</div>
+          <div class="voice-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+          </div>
           <div>
             <div class="voice-name">T.M 様（72歳）</div>
             <div class="voice-area">トイレリフォーム</div>
@@ -1549,22 +1660,25 @@
       </div>
       <div class="voice-card reveal">
         <div class="voice-stars">★★★★★</div>
-        <p class="voice-text">給湯器が壊れて困っていたところ、翌日に来ていただけました。新しい給湯器の使い方を丁寧に説明してくださり、とても助かりました。また何かあればお願いします。</p>
+        <p class="voice-text">給湯器が突然壊れて困っていましたが、翌日すぐに来ていただけました。費用も明確で余計な提案もなく、とても誠実な対応でした。家族にも勧めたいと思います。</p>
         <div class="voice-person">
-          <div class="voice-avatar">👵</div>
+          <div class="voice-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+          </div>
           <div>
-            <div class="voice-name">K.S 様（68歳）</div>
+            <div class="voice-name">K.S 様（54歳）</div>
             <div class="voice-area">給湯器交換</div>
           </div>
         </div>
       </div>
       <div class="voice-card reveal">
         <div class="voice-stars">★★★★★</div>
-        <p class="voice-text">洗面台と洗面所のクロスを一緒にリフォームしてもらいました。明るく清潔感のある空間になり大満足です。金額も納得できる価格でした。ご近所にも紹介しました。</p>
+        <p class="voice-text">築古のマンションに引っ越してすぐ水回りをまとめてリフォームしました。こちらの希望をしっかり聞いてくれて、予算内できれいに仕上げてもらえました。対応も早くて大満足です！</p>
         <div class="voice-person">
-          <div class="voice-avatar">👵</div>
-          <div>
-            <div class="voice-name">Y.O 様（75歳）</div>
+          <div class="voice-avatar" style="background: linear-gradient(135deg, #f48fb1, #e91e8c);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+          </div>
+            <div class="voice-name">Y.O 様（32歳）</div>
             <div class="voice-area">洗面台・内装リフォーム</div>
           </div>
         </div>
@@ -1579,13 +1693,13 @@
     <h2>まずは<span>無料相談・お見積り</span>から</h2>
     <p>「どんな工事が必要？」「費用はどのくらい？」<br>どんな小さなお悩みもお気軽にご相談ください。</p>
     <div class="cta-tel-big">
-      <span>📞</span>
-      <span>03-6821-3857</span>
+      <span><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+      <a href="tel:03-6821-3857" style="color:white;text-decoration:none;">03-6821-3857</a>
     </div>
     <p class="cta-tel-hours">受付時間：火〜日 8:00〜18:00（月曜・年末年始休）</p>
     <div class="cta-buttons">
-      <a href="#form" class="btn-white">📋 メールでお問い合わせ</a>
-      <a href="tel:03-6821-3857" class="btn-outline-white">📞 今すぐ電話する</a>
+      <a href="#form" class="btn-white"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> メールでお問い合わせ</a>
+      <a href="tel:03-6821-3857" class="btn-outline-white"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 今すぐ電話する</a>
     </div>
   </div>
 </div>
@@ -1602,28 +1716,28 @@
       <div class="contact-info reveal">
         <p>お電話またはメールフォームにてお気軽にご連絡ください。経験豊富なスタッフが丁寧にご対応いたします。</p>
         <div class="contact-item">
-          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2e7dd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
             <div class="contact-item-label">電話番号</div>
-            <div class="contact-item-value">03-6821-3857</div>
+            <div class="contact-item-value"><a href="tel:03-6821-3857" style="color:inherit;text-decoration:none;">03-6821-3857</a></div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-item-icon">🕐</div>
+          <div class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2e7dd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <div>
             <div class="contact-item-label">受付時間</div>
             <div class="contact-item-value">火〜日 8:00〜18:00（月曜・年末年始休）</div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2e7dd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
             <div class="contact-item-label">所在地</div>
             <div class="contact-item-value">〒133-0065 東京都江戸川区南篠崎町</div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-item-icon">🚗</div>
+          <div class="contact-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2e7dd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
           <div>
             <div class="contact-item-label">対応エリア</div>
             <div class="contact-item-value">東京・千葉・埼玉・神奈川</div>
@@ -1651,9 +1765,9 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-logo-text">🏠 あんしんリフォーム</div>
+        <div class="footer-logo-text"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> あんしんリフォーム</div>
         <p class="footer-company-desc">職人の施工実績1,000件以上、住まいのリフォーム専門店。水まわり・内装・電気設備まで、安心・丁寧・明朗会計でご対応いたします。</p>
-        <div class="footer-tel">📞 03-6821-3857</div>
+        <div class="footer-tel"><a href="tel:03-6821-3857" style="color:inherit;text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 03-6821-3857</a></div>
       </div>
       <div>
         <div class="footer-nav-title">施工内容</div>
@@ -1686,7 +1800,7 @@
       </div>
     </div>
     <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 32px; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-      <div style="font-size: 0.75rem; color: rgba(255,255,255,0.4);">© 2025 株式会社RooooM All Rights Reserved.</div>
+      <div style="font-size: 0.75rem; color: rgba(255,255,255,0.4);">© 2026 株式会社RooooM All Rights Reserved.</div>
       <a href="tokusho.html" style="font-size: 0.78rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#5aabf0'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">特定商取引法に基づく表記</a>
     </div>
   </div>
@@ -1694,7 +1808,7 @@
 
 <!-- ===== STICKY CTA ===== -->
 <div class="sticky-cta">
-  <a href="tel:03-6821-3857">📞 無料相談・お見積り</a>
+  <a href="#form">無料相談・お見積り</a>
 </div>
 
 <script>
