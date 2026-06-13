@@ -360,7 +360,22 @@
 
     /* ===== FEATURES ===== */
     .features {
-      background: var(--gray);
+      position: relative;
+      background-image: url('img/features_bg.avif');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .features::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(244, 247, 251, 0.75);
+    }
+
+    .features .section-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .features-grid {
