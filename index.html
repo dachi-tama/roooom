@@ -362,8 +362,9 @@
     .features {
       position: relative;
       background-image: url('img/features_bg.avif');
-      background-size: cover;
+      background-size: 100% 100%;
       background-position: center;
+      background-repeat: no-repeat;
     }
 
     .features::before {
@@ -460,7 +461,7 @@
       position: relative;
       background-image: url('img/services_bg.avif');
       background-size: cover;
-      background-position: center top;
+      background-position: center center;
     }
 
     .services::before {
@@ -1075,8 +1076,7 @@
       transform: translateY(-2px);
       box-shadow: 0 10px 32px rgba(200,151,42,0.6);
     }
-
-    /* ===== ANIMATIONS ===== */
+/* ===== ANIMATIONS ===== */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -1094,7 +1094,24 @@
     }
 
     /* ===== PRICE TABLE ===== */
-    .price { background: var(--gray); }
+    .price {
+      position: relative;
+      background-image: url('img/price_bg.avif');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .price::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(244, 247, 251, 0.55);
+    }
+
+    .price .section-inner {
+      position: relative;
+      z-index: 1;
+    }
 
     .price-grid {
       display: grid;
@@ -1269,6 +1286,9 @@
       .cta-banner {
         background-attachment: scroll;
       }
+      .services {
+        background-position: 85% center;
+      }
     }
 
     @media (max-width: 1188px) {
@@ -1390,7 +1410,6 @@
     </svg>
   </div>
 </section>
-
 <!-- ===== FEATURES ===== -->
 <section class="features" id="features">
   <div class="section-inner">
@@ -1425,14 +1444,6 @@
     </div>
   </div>
 </section>
-
-<!-- ===== WAVE DIVIDER ===== -->
-<div style="position:relative; margin-bottom:-2px; line-height:0; overflow:hidden;">
-  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%; height:60px; display:block;">
-    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="none" stroke="rgba(180,200,230,0.6)" stroke-width="1.5"/>
-  </svg>
-</div>
-
 <!-- ===== SERVICES ===== -->
 <section class="services" id="services">
   <div class="section-inner">
@@ -1444,56 +1455,56 @@
     </div>
     <div class="services-grid">
       <!-- トイレ -->
-      <div class="service-card reveal" style="background-image: url('img/img_toilet.avif');">
+      <div class="service-card reveal" style="background-image: url('img/img_toilet.avif'); cursor:pointer;" onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'})">
         <div class="service-card-inner">
           <div class="service-name">トイレリフォーム</div>
           <div class="service-desc">節水・温水洗浄便座など最新設備への交換</div>
         </div>
       </div>
       <!-- 洗面台 -->
-      <div class="service-card reveal" style="background-image: url('img/img_washroom.avif');">
+      <div class="service-card reveal" style="background-image: url('img/img_washroom.avif'); cursor:pointer;" onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'})">
         <div class="service-card-inner">
           <div class="service-name">洗面台リフォーム</div>
           <div class="service-desc">収納力アップ・使いやすい高さへの交換</div>
         </div>
       </div>
       <!-- 給湯器 -->
-      <div class="service-card reveal" style="background-image: url('img/img_boiler.avif');">
+      <div class="service-card reveal" style="background-image: url('img/img_boiler.avif'); cursor:pointer;" onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'})">
         <div class="service-card-inner">
           <div class="service-name">給湯器交換</div>
           <div class="service-desc">エコ給湯器・ガス・電気・石油に対応</div>
         </div>
       </div>
       <!-- 配管 -->
-      <div class="service-card reveal" style="background-image: url('img/img_pipe.avif');">
+      <div class="service-card reveal" style="background-image: url('img/img_pipe.avif'); cursor:pointer;" onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'})">
         <div class="service-card-inner">
           <div class="service-name">給水・給湯管工事</div>
           <div class="service-desc">老朽化した配管の交換・修繕工事</div>
         </div>
       </div>
       <!-- 蛇口 -->
-      <div class="service-card reveal" style="background-image: url('img/img_faucet.avif');">
+      <div class="service-card reveal" style="background-image: url('img/img_faucet.avif'); cursor:pointer;" onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'})">
         <div class="service-card-inner">
           <div class="service-name">蛇口・水栓交換</div>
           <div class="service-desc">水漏れ・老朽化した蛇口の修理・交換</div>
         </div>
       </div>
       <!-- クロス・床 -->
-      <div class="service-card reveal" style="background-image: url('img/img_interior.avif');">
+      <div class="service-card reveal" style="background-image: url('img/img_interior.avif'); cursor:pointer;" onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'})">
         <div class="service-card-inner">
           <div class="service-name">クロス・床張替え</div>
           <div class="service-desc">壁紙・クッションフロアの貼り替え</div>
         </div>
       </div>
       <!-- 電気 -->
-      <div class="service-card reveal" style="background-image: url('img/img_electric.avif');">
+      <div class="service-card reveal" style="background-image: url('img/img_electric.avif'); cursor:pointer;" onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'})">
         <div class="service-card-inner">
           <div class="service-name">ブレーカー・電気工事</div>
           <div class="service-desc">分電盤交換・コンセント増設・照明工事</div>
         </div>
       </div>
       <!-- ユニットバス・キッチン -->
-      <div class="service-card reveal" style="background-image: url('img/img_bath_kitchen.avif');">
+      <div class="service-card reveal" style="background-image: url('img/img_bath_kitchen.avif'); cursor:pointer;" onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'})">
         <div class="service-card-inner">
           <div class="service-name">ユニットバス・キッチン</div>
           <div class="service-desc">浴室・キッチンの丸ごとリフォーム</div>
@@ -1502,7 +1513,6 @@
     </div>
   </div>
 </section>
-
 <!-- ===== PRICE ===== -->
 <section class="price" id="price">
   <div class="section-inner">
@@ -1675,7 +1685,6 @@
     </div>
   </div>
 </section>
-
 <!-- ===== FLOW ===== -->
 <section class="flow" id="flow">
   <div class="section-inner">
@@ -1714,7 +1723,6 @@
     </div>
   </div>
 </section>
-
 <!-- ===== VOICE ===== -->
 <section class="voice" id="voice">
   <div class="section-inner">
@@ -1766,7 +1774,6 @@
     </div>
   </div>
 </section>
-
 <!-- ===== CTA BANNER ===== -->
 <div class="cta-banner">
   <div class="cta-banner-inner">
@@ -1852,30 +1859,30 @@
       <div>
         <div class="footer-nav-title">施工内容</div>
         <ul class="footer-nav-list">
-          <li><a href="#">トイレリフォーム</a></li>
-          <li><a href="#">洗面台リフォーム</a></li>
-          <li><a href="#">給湯器交換</a></li>
-          <li><a href="#">給水・給湯管工事</a></li>
-          <li><a href="#">蛇口・水栓交換</a></li>
+          <li><a href="#services">トイレリフォーム</a></li>
+          <li><a href="#services">洗面台リフォーム</a></li>
+          <li><a href="#services">給湯器交換</a></li>
+          <li><a href="#services">給水・給湯管工事</a></li>
+          <li><a href="#services">蛇口・水栓交換</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-nav-title">施工内容（続き）</div>
         <ul class="footer-nav-list">
-          <li><a href="#">クロス・床張替え</a></li>
-          <li><a href="#">電気工事</a></li>
-          <li><a href="#">ユニットバス</a></li>
-          <li><a href="#">キッチンリフォーム</a></li>
+          <li><a href="#services">クロス・床張替え</a></li>
+          <li><a href="#services">電気工事</a></li>
+          <li><a href="#services">ユニットバス</a></li>
+          <li><a href="#services">キッチンリフォーム</a></li>
         </ul>
       </div>
       <div>
-        <div class="footer-nav-title">会社情報</div>
+        <div class="footer-nav-title">サイト情報</div>
         <ul class="footer-nav-list">
-          <li><a href="#">会社概要</a></li>
-          <li><a href="#">施工事例</a></li>
-          <li><a href="#">お客様の声</a></li>
-          <li><a href="#">料金のご案内</a></li>
-          <li><a href="#">お問い合わせ</a></li>
+          <li><a href="#features">選ばれる理由</a></li>
+          <li><a href="#price">料金のご案内</a></li>
+          <li><a href="#flow">ご依頼の流れ</a></li>
+          <li><a href="#voice">お客様の声</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
         </ul>
       </div>
     </div>
